@@ -4,32 +4,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
-import { ClipLoader } from "react-spinners"; // Importing a loader from react-spinners
 
 const Books = () => {
   const [books, setBooks] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
       .get("https://book-store-application-5z0b.onrender.com/book/get-book")
       .then((response) => {
         setBooks(response.data.book);
-        setLoading(false); // Stop the spinner after data is fetched
       })
       .catch((error) => {
         console.error("Error fetching books:", error);
-        setLoading(false); // Stop the spinner even if there's an error
       });
   }, []);
-
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center w-full h-screen bg-gray-100 fixed top-0 left-0 z-50">
-        <ClipLoader color="#4A90E2" size={60} />
-      </div>
-    );
-  }
 
   return (
     <div className="px-4 md:px-10 lg:px-20">
