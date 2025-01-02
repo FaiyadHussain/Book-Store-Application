@@ -32,6 +32,6 @@ app.use("/favourites", routes);
 app.use("/Cart", cart);
 app.use("/order", orders);
 
-app.listen(process.env.PORT, () => {
+app.listen(process.env.PORT, "0.0.0.0", () => {
   console.log(`Server is Connected PORT : ${process.env.PORT}`);
 });
