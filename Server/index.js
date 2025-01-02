@@ -13,14 +13,8 @@ const orders = require("./Routes/order");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
-const corsOptions = {
-  origin: "http://localhost:3000", // Allow requests from this origin
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  credentials: true, // Allow cookies and other credentials
-};
 
 // Apply CORS middleware
-app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   res.send("Hello world");
