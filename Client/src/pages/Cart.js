@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai"; // Import the Close Icon
+import { toast } from "react-toastify"; // Import Toastify
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -64,17 +65,30 @@ const Cart = () => {
       );
 
       if (response.status === 200) {
-        alert("Order placed successfully!");
-        setCartItems();
-        console.log(setCartItems([]));
+        // Success toast
+        toast.success("Order placed successfully!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: true,
+        });
 
+        setCartItems([]);
         navigate("/profile/orderHistory");
       } else {
-        alert("Failed to place the order.");
+        // Error toast
+        toast.error("Failed to place the order.", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: true,
+        });
       }
     } catch (err) {
       console.error("Error placing order:", err);
-      alert("An error occurred while placing the order.");
+      toast.error("An error occurred while placing the order.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: true,
+      });
     }
   };
 
