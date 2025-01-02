@@ -5,6 +5,8 @@ import axios from "axios";
 import { authActions } from "../Store/Auth";
 import { FaHeart, FaHistory, FaCog, FaSignOutAlt } from "react-icons/fa"; // Importing necessary icons
 import { useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify"; // Importing Toastify
+import "react-toastify/dist/ReactToastify.css"; // Import Toastify CSS
 
 const Sidebar = ({ data, setDpChange }) => {
   const navigate = useNavigate();
@@ -25,6 +27,7 @@ const Sidebar = ({ data, setDpChange }) => {
     localStorage.removeItem("token");
     localStorage.removeItem("role");
     localStorage.removeItem("id");
+    toast.success("You have logged out successfully!"); // Success toast on logout
     navigate("/login");
   };
 
@@ -53,11 +56,11 @@ const Sidebar = ({ data, setDpChange }) => {
         setAvatar(response.data.avatar);
       }
 
-      alert("Profile image updated successfully!");
+      toast.success("Profile image updated successfully!"); // Success toast for avatar update
       setDpChange(true);
     } catch (error) {
       console.error("Error uploading avatar:", error);
-      alert("Failed to upload profile image.");
+      toast.error("Failed to upload profile image."); // Error toast on failure
     } finally {
       setUploading(false);
     }
@@ -80,6 +83,9 @@ const Sidebar = ({ data, setDpChange }) => {
 
   return (
     <div className="bg-gray-100 p-6 rounded-lg flex flex-col h-screen shadow-lg">
+      {/* Toast Container */}
+      <ToastContainer />
+
       {/* Profile Section */}
       <div className="flex flex-col items-center justify-center mb-8">
         {/* Avatar */}

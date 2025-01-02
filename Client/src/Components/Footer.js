@@ -114,7 +114,7 @@ const Footer = () => {
         {/* Footer Bottom */}
         <div className="mt-8 border-t border-gray-300 pt-4 text-center">
           <p className="text-sm text-gray-600">
-            &copy; {new Date().getFullYear()} Book-Heaven. All Rights Reserved.
+            &copy; {new Date().getFullYear()} Bookify. All Rights Reserved.
           </p>
         </div>
       </div>

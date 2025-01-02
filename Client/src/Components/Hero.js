@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer"; // Import for lazy loading
+import { Link } from "react-router-dom"; // Import Link for navigation
 
 const Hero = () => {
   // Animation Variants
@@ -58,13 +59,14 @@ const Hero = () => {
           journey through literary worlds that expand your mind and spark your
           imagination.
         </motion.p>
+        {/* Link to All Books Page */}
         <motion.div
           className="text-lg md:text-xl font-semibold border-2 px-8 py-3 w-fit mt-6 lg:mt-8 rounded-full cursor-pointer transition-transform bg-white text-blue-600 shadow-xl"
           variants={buttonVariant}
           whileHover="hover"
           whileTap="tap"
         >
-          Discover Books
+          <Link to="/all-book">Discover Books</Link>
         </motion.div>
       </motion.div>
 
