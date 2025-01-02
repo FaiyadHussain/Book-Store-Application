@@ -28,7 +28,7 @@ const Navbar = () => {
   }
 
   return (
-    <div className="flex justify-between items-center p-4  sticky top-0 z-50 bg-white shadow-lg border-b relative">
+    <div className="flex justify-between items-center p-4  sticky top-0 z-20 bg-white shadow-lg border-b relative">
       {/* Logo Section */}
       <Link to="/" className="flex items-center space-x-2">
         <img

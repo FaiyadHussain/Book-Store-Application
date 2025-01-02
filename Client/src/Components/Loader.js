@@ -1,9 +1,13 @@
 import React from "react";
+import HashLoader from "react-spinners/HashLoader";
 
 const Loader = () => {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="loader ease-linear rounded-full border-8 border-t-8 border-gray-200 h-32 w-32"></div>
+    <div
+      className="flex items-center justify-center w-full h-full fixed top-0 left-0 bg-white z-50"
+      style={{ overflow: "hidden" }}
+    >
+      <HashLoader color="#0000FF" size={100} />
     </div>
   );
 };
