@@ -41,7 +41,7 @@ const Sidebar = ({ data, setDpChange }) => {
       setUploading(true);
 
       const response = await axios.put(
-        "http://localhost:5000/profile/update-avatar",
+        "https://book-store-application-5z0b.onrender.com/profile/update-avatar",
         formData,
         {
           headers,

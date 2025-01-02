@@ -13,9 +13,12 @@ const ForgotPassword = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/request-otp", {
-        email,
-      });
+      const response = await axios.post(
+        "https://book-store-application-5z0b.onrender.com/request-otp",
+        {
+          email,
+        }
+      );
       if (response.status === 200) {
         toast.success("OTP sent to your email!", {
           position: "top-center",

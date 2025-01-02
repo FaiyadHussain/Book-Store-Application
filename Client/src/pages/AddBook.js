@@ -35,9 +35,13 @@ const AddBook = () => {
     }
 
     try {
-      await axios.post("http://localhost:5000/book/add-books", formData, {
-        headers,
-      });
+      await axios.post(
+        "https://book-store-application-5z0b.onrender.com/book/add-books",
+        formData,
+        {
+          headers,
+        }
+      );
       toast.success("Book added successfully", {
         position: "top-center",
         autoClose: 3000,

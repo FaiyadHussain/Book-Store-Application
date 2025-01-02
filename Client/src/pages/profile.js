@@ -17,7 +17,7 @@ const Profile = () => {
 
       try {
         const response = await axios.get(
-          "http://localhost:5000/get-user-info",
+          "https://book-store-application-5z0b.onrender.com/get-user-info",
           { headers }
         );
         setUser(response.data.data);

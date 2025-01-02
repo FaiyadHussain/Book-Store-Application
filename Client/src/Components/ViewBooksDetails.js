@@ -19,7 +19,9 @@ const ViewBookDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/book/get-book/${id}`)
+      .get(
+        `https://book-store-application-5z0b.onrender.com/book/get-book/${id}`
+      )
       .then((res) => {
         setBook(res.data.book);
         setEditedBook(res.data.book);
@@ -43,7 +45,7 @@ const ViewBookDetails = () => {
   const handleEditSubmit = async () => {
     try {
       const response = await axios.put(
-        `http://localhost:5000/book/update-books/${id}`,
+        `https://book-store-application-5z0b.onrender.com/book/update-books/${id}`,
         editedBook,
         { headers }
       );
@@ -69,7 +71,7 @@ const ViewBookDetails = () => {
 
     try {
       const response = await axios.delete(
-        `http://localhost:5000/book/delete-books/${id}`,
+        `https://book-store-application-5z0b.onrender.com/book/delete-books/${id}`,
         { headers }
       );
       if (response.status === 200) {
@@ -95,7 +97,7 @@ const ViewBookDetails = () => {
   const handleAddToFavorites = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:5000/favourites/add-to-favourite",
+        "https://book-store-application-5z0b.onrender.com/favourites/add-to-favourite",
         { bookId: id },
         { headers }
       );
@@ -117,7 +119,7 @@ const ViewBookDetails = () => {
   const handleAddToCart = async () => {
     try {
       const response = await axios.put(
-        "http://localhost:5000/Cart/add-to-cart",
+        "https://book-store-application-5z0b.onrender.com/Cart/add-to-cart",
         { bookId: id },
         { headers }
       );

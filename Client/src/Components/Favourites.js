@@ -15,7 +15,7 @@ const Favourites = () => {
     const fetchFavourites = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:5000/favourites/get-fav-book",
+          "https://book-store-application-5z0b.onrender.com/favourites/get-fav-book",
           { headers }
         );
         setFav(response.data.data); // Assuming `data.data` contains the list of favorite books
@@ -40,7 +40,7 @@ const Favourites = () => {
   const handleBookRemove = async (bookId) => {
     try {
       const response = await axios.delete(
-        "http://localhost:5000/favourites/remove-book-from-favourite",
+        "https://book-store-application-5z0b.onrender.com/favourites/remove-book-from-favourite",
         {
           headers: {
             ...headers,

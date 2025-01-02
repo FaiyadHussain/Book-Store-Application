@@ -17,11 +17,14 @@ const ResetPassword = () => {
     setLoading(true);
 
     try {
-      const response = await axios.put("http://localhost:5000/verify-otp", {
-        email,
-        otp,
-        newPassword,
-      });
+      const response = await axios.put(
+        "https://book-store-application-5z0b.onrender.com/verify-otp",
+        {
+          email,
+          otp,
+          newPassword,
+        }
+      );
 
       if (response.status === 200) {
         toast.success("Password reset successfully!", {

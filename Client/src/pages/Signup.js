@@ -26,7 +26,7 @@ const Signup = () => {
     e.preventDefault(); // Prevent default form submission
     try {
       const response = await axios.post(
-        "http://localhost:5000/Singup",
+        "https://book-store-application-5z0b.onrender.com/Singup",
         formData
       );
       navigate("/login");

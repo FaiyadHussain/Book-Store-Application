@@ -20,10 +20,13 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post("http://localhost:5000/login", {
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://book-store-application-5z0b.onrender.com/login",
+        {
+          email,
+          password,
+        }
+      );
 
       if (response.status === 200) {
         dispatch(authActions.login());

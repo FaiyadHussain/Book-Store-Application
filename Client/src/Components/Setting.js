@@ -19,7 +19,7 @@ const Setting = () => {
     setLoading(true);
     try {
       await axios.put(
-        "http://localhost:5000/reset-password",
+        "https://book-store-application-5z0b.onrender.com/reset-password",
         { currentPassword, newPassword },
         { headers }
       );
@@ -52,7 +52,7 @@ const Setting = () => {
     setLoading(true);
     try {
       await axios.put(
-        "http://localhost:5000/update-address",
+        "https://book-store-application-5z0b.onrender.com/update-address",
         { address },
         { headers }
       );
