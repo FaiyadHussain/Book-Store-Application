@@ -3,6 +3,7 @@ import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
@@ -88,27 +89,32 @@ const Books = () => {
                   variants={cardVariant}
                   whileHover={{ scale: 1.05 }}
                 >
-                  <div className="flex justify-center">
-                    <motion.img
-                      alt={book.title}
-                      src={book.file}
-                      className="w-24 h-36 sm:w-32 sm:h-44 lg:w-40 lg:h-56 rounded-md bg-gray-100 object-cover"
-                      whileHover={{ scale: 1.1, transition: { duration: 0.3 } }}
-                    />
-                  </div>
-                  <div className="mt-4 text-center">
-                    <h3 className="text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
-                      {book.title.length > 20
-                        ? `${book.title.slice(0, 17)}...`
-                        : book.title}
-                    </h3>
-                    <p className="text-xs text-gray-500 mt-1">
-                      <b>Author:</b> {book.author}
-                    </p>
-                    <p className="text-sm font-medium text-gray-900 mt-2">
-                      ₹{book.price}
-                    </p>
-                  </div>
+                  <Link to={`/view-details/${book._id}`}>
+                    <div className="flex justify-center">
+                      <motion.img
+                        alt={book.title}
+                        src={book.file}
+                        className="w-24 h-36 sm:w-32 sm:h-44 lg:w-40 lg:h-56 rounded-md bg-gray-100 object-cover"
+                        whileHover={{
+                          scale: 1.1,
+                          transition: { duration: 0.3 },
+                        }}
+                      />
+                    </div>
+                    <div className="mt-4 text-center">
+                      <h3 className="text-sm font-medium text-gray-800 group-hover:text-blue-600 transition-colors duration-300">
+                        {book.title.length > 20
+                          ? `${book.title.slice(0, 17)}...`
+                          : book.title}
+                      </h3>
+                      <p className="text-xs text-gray-500 mt-1">
+                        <b>Author:</b> {book.author}
+                      </p>
+                      <p className="text-sm font-medium text-gray-900 mt-2">
+                        ₹{book.price}
+                      </p>
+                    </div>
+                  </Link>
                 </motion.div>
               </SwiperSlide>
             ))}

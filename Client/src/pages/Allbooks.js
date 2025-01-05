@@ -8,7 +8,7 @@ const Allbooks = () => {
   const [filteredBooks, setFilteredBooks] = useState([]);
   const [loading, setLoading] = useState(true); // Loading state for shimmer effect
   const [currentPage, setCurrentPage] = useState(1); // State for current page
-  const booksPerPage = 10; // Books per page
+  const booksPerPage = 15; // Books per page
 
   useEffect(() => {
     axios
