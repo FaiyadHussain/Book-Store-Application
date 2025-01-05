@@ -54,9 +54,9 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4 text-gray-800">About</h3>
             <p className="text-gray-600 text-sm">
-              Book-Heaven is your ultimate destination for discovering
-              captivating books and stories. Join our community of passionate
-              readers and find your next great read.
+              Bookify is your ultimate destination for discovering captivating
+              books and stories. Join our community of passionate readers and
+              find your next great read.
             </p>
           </div>
 
