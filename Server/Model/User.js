@@ -6,11 +6,13 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
+      index: true, // Adding index on username for faster lookups
     },
     email: {
       type: String,
       required: true,
       unique: true,
+      index: true, // Adding index on email for faster lookups
     },
     password: {
       type: String,
@@ -27,9 +29,9 @@ const userSchema = new mongoose.Schema(
     },
     role: {
       type: String,
-
       enum: ["user", "admin"],
       default: "user",
+      index: true, // Adding index on role (if filtering by role is needed)
     },
     favourites: [
       {
@@ -52,5 +54,8 @@ const userSchema = new mongoose.Schema(
   },
   { timestamps: true }
 );
+
+// Optionally, you can create a compound index for username and role
+userSchema.index({ username: 1, role: 1 }); // Compound index for faster search by both fields
 
 module.exports = mongoose.model("user", userSchema);
